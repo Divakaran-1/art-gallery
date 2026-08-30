@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Art Gallery</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f5f0;
+    color:#333;
+    line-height:1.6;
+}
+
+header{
+    background:#5d4037;
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+header h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+}
+
+nav{
+    background:#795548;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffd54f;
+}
+
+main{
+    max-width:1100px;
+    margin:auto;
+}
+
+section{
+    padding:50px 20px;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#5d4037;
+    font-size:30px;
+}
+
+.hero{
+    background:#efebe9;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h2{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+}
+
+.hero img{
+    width:100%;
+    max-width:900px;
+    height:350px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-top:25px;
+}
+
+.button{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#795548;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.button:hover{
+    background:#5d4037;
+}
+
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    width:300px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.card h3{
+    margin:10px 0;
+    color:#5d4037;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    background:white;
+}
+
+th,td{
+    border:1px solid #999;
+    padding:12px;
+    text-align:center;
+}
+
+th{
+    background:#795548;
+    color:white;
+}
+
+.lists{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+}
+
+ol,ul,dl{
+    margin:15px 0 15px 30px;
+}
+
+dt{
+    font-weight:bold;
+    color:#5d4037;
+}
+
+.media{
+    text-align:center;
+}
+
+.media img{
+    width:100%;
+    max-width:600px;
+    border-radius:10px;
+    margin:15px;
+}
+
+audio,
+video{
+    width:90%;
+    max-width:700px;
+    margin:15px;
+}
+
+aside{
+    background:#d7ccc8;
+    padding:25px;
+    margin:20px;
+    border-left:5px solid #795548;
+}
+
+
+/* FORM */
+
+form{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+    color:#5d4037;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #aaa;
+    border-radius:5px;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+    width:auto;
+    margin-right:5px;
+}
+
+input[type="color"]{
+    width:70px;
+    height:45px;
+    padding:2px;
+}
+
+input[type="range"]{
+    width:100%;
+}
+
+textarea{
+    height:120px;
+    resize:vertical;
+}
+
+.form-option{
+    margin-top:8px;
+}
+
+.form-option label{
+    display:inline;
+    margin:0;
+    font-weight:normal;
+}
+
+input[type="submit"],
+input[type="reset"]{
+    padding:12px 22px;
+    margin-top:20px;
+    margin-right:10px;
+    border:none;
+    background:#795548;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover{
+    background:#5d4037;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact a{
+    color:#5d4037;
+    font-weight:bold;
+}
+
+footer{
+    background:#5d4037;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:20px;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width:768px){
+
+    .gallery{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .hero img{
+        height:240px;
+    }
+
+    nav a{
+        display:inline-block;
+        margin:5px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header id="home">
+
+<h1>Art Gallery</h1>
+
+<p>Discover Creativity • Explore Paintings • Celebrate Art</p>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#gallery">Gallery</a>
+
+<a href="#artists">Artists</a>
+
+<a href="#registration">Registration</a>
+
+<a href="#contact">Contact</a>
+
+<a href="https://artsandculture.google.com/" target="_blank">
+Google Arts
+</a>
+
+</nav>
+
+
+<main>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+<h2>Welcome to Art Gallery</h2>
+
+<p>
+Experience beautiful paintings, sculptures,
+digital artworks and exhibitions from world-famous artists.
+</p>
+
+<a href="#gallery" class="button">
+Explore Gallery
+</a>
+
+<br><br>
+
+<a href="#gallery">
+
+<img
+src="https://images.unsplash.com/photo-1518998053901-5348d3961a04"
+alt="Art Gallery">
+
+</a>
+
+</section>
+
+
+<!-- ABOUT SECTION -->
+
+<section id="about">
+
+<h2>About Art Gallery</h2>
+
+<article>
+
+<p>
+Art is a creative expression that reflects imagination,
+culture and emotions. Our gallery displays classical,
+modern and contemporary artworks from talented artists
+around the world.
+</p>
+
+<br>
+
+<p>
+The gallery promotes creativity, preserves artistic
+heritage and inspires visitors through unique collections.
+</p>
+
+</article>
+
+</section>
+
+
+<!-- GALLERY SECTION -->
+
+<section id="gallery">
+
+<h2>Gallery Collection</h2>
+
+<div class="gallery">
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968"
+alt="Abstract Painting">
+
+<h3>Abstract Art</h3>
+
+<p>
+Abstract paintings express emotions through colors,
+patterns and imagination.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5"
+alt="Portrait Painting">
+
+<h3>Portrait Art</h3>
+
+<p>
+Portrait paintings beautifully capture the expressions
+and personality of individuals.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b"
+alt="Landscape Painting">
+
+<h3>Landscape Art</h3>
+
+<p>
+Landscape paintings showcase mountains, rivers,
+trees and beautiful natural scenery.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ARTISTS SECTION -->
+
+<section id="artists">
+
+<h2>Famous Artists</h2>
+
+<div class="lists">
+
+
+<table>
+
+<tr>
+
+<th>Artist</th>
+
+<th>Country</th>
+
+<th>Famous Painting</th>
+
+<th>Year</th>
+
+</tr>
+
+
+<tr>
+
+<td>Leonardo da Vinci</td>
+
+<td>Italy</td>
+
+<td>Mona Lisa</td>
+
+<td>1503</td>
+
+</tr>
+
+
+<tr>
+
+<td>Vincent van Gogh</td>
+
+<td>Netherlands</td>
+
+<td>Starry Night</td>
+
+<td>1889</td>
+
+</tr>
+
+
+<tr>
+
+<td>Pablo Picasso</td>
+
+<td>Spain</td>
+
+<td>Guernica</td>
+
+<td>1937</td>
+
+</tr>
+
+
+<tr>
+
+<td>Claude Monet</td>
+
+<td>France</td>
+
+<td>Water Lilies</td>
+
+<td>1916</td>
+
+</tr>
+
+</table>
+
+
+<br><br>
+
+
+<h3>Popular Art Categories</h3>
+
+<ol>
+
+<li>Painting
+
+<ol>
+
+<li>Oil Painting</li>
+
+<li>Watercolor</li>
+
+<li>Acrylic</li>
+
+</ol>
+
+</li>
+
+
+<li>Sculpture
+
+<ol>
+
+<li>Stone</li>
+
+<li>Metal</li>
+
+</ol>
+
+</li>
+
+</ol>
+
+
+<h3>Gallery Facilities</h3>
+
+<ul>
+
+<li>Art Exhibition
+
+<ul>
+
+<li>Modern Art</li>
+
+<li>Traditional Art</li>
+
+</ul>
+
+</li>
+
+
+<li>Visitor Services
+
+<ul>
+
+<li>Guided Tour</li>
+
+<li>Photography</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+
+<h3>Important Art Terms</h3>
+
+<dl>
+
+<dt>Canvas</dt>
+
+<dd>The surface used for painting.</dd>
+
+
+<dt>Gallery</dt>
+
+<dd>A place where artworks are displayed.</dd>
+
+
+<dt>Exhibition</dt>
+
+<dd>A public display of paintings and sculptures.</dd>
+
+</dl>
+
+
+</div>
+
+</section>
+
+
+<!-- ASIDE -->
+
+<aside>
+
+<h3>Did You Know?</h3>
+
+<p>
+The famous painting <b>Mona Lisa</b>
+is displayed in the Louvre Museum,
+France, and is one of the world's
+most valuable artworks.
+</p>
+
+</aside>
+
+
+<!-- MULTIMEDIA -->
+
+<section class="media">
+
+<h2>Gallery Media</h2>
+
+<p>
+Click the image below to explore more paintings.
+</p>
+
+<a href="#gallery">
+
+<img
+src="https://images.unsplash.com/photo-1518998053901-5348d3961a04"
+alt="Gallery">
+
+</a>
+
+
+<h3>Background Music</h3>
+
+<audio controls>
+
+<source
+src="audio/music.mp3"
+type="audio/mpeg">
+
+Your browser does not support audio.
+
+</audio>
+
+
+<h3>Gallery Video</h3>
+
+<video controls>
+
+<source
+src="video/gallery.mp4"
+type="video/mp4">
+
+Your browser does not support video.
+
+</video>
+
+</section>
+
+
+<!-- ART GALLERY VISITOR REGISTRATION FORM -->
+
+<section id="registration">
+
+<h2>Art Gallery Visitor Registration</h2>
+
+<form action="#">
+
+
+<label for="name">
+Visitor Name
+</label>
+
+<input
+type="text"
+id="name"
+name="name"
+placeholder="Enter your full name"
+required
+minlength="3"
+maxlength="40">
+
+
+<label for="email">
+Email Address
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="example@gmail.com"
+required>
+
+
+<label for="password">
+Create Password
+</label>
+
+<input
+type="password"
+id="password"
+name="password"
+placeholder="Create your password"
+required
+minlength="6">
+
+
+<label for="age">
+Age
+</label>
+
+<input
+type="number"
+id="age"
+name="age"
+placeholder="Enter your age"
+min="5"
+max="100"
+required>
+
+
+<label for="dob">
+Date of Birth
+</label>
+
+<input
+type="date"
+id="dob"
+name="dob"
+required>
+
+
+<label>
+Preferred Art Style
+</label>
+
+
+<div class="form-option">
+
+<input
+type="radio"
+id="classical"
+name="artstyle"
+value="Classical Art"
+required>
+
+<label for="classical">
+Classical Art
+</label>
+
+</div>
+
+
+<div class="form-option">
+
+<input
+type="radio"
+id="modern"
+name="artstyle"
+value="Modern Art">
+
+<label for="modern">
+Modern Art
+</label>
+
+</div>
+
+
+<div class="form-option">
+
+<input
+type="radio"
+id="contemporary"
+name="artstyle"
+value="Contemporary Art">
+
+<label for="contemporary">
+Contemporary Art
+</label>
+
+</div>
+
+
+<label>
+Favourite Art Types
+</label>
+
+
+<div class="form-option">
+
+<input
+type="checkbox"
+id="painting"
+name="arttypes"
+value="Painting">
+
+<label for="painting">
+Painting
+</label>
+
+</div>
+
+
+<div class="form-option">
+
+<input
+type="checkbox"
+id="sculpture"
+name="arttypes"
+value="Sculpture">
+
+<label for="sculpture">
+Sculpture
+</label>
+
+</div>
+
+
+<div class="form-option">
+
+<input
+type="checkbox"
+id="digital"
+name="arttypes"
+value="Digital Art">
+
+<label for="digital">
+Digital Art
+</label>
+
+</div>
+
+
+<div class="form-option">
+
+<input
+type="checkbox"
+id="photography"
+name="arttypes"
+value="Photography">
+
+<label for="photography">
+Photography
+</label>
+
+</div>
+
+
+<label for="category">
+Preferred Gallery Category
+</label>
+
+<select
+id="category"
+name="category"
+required>
+
+<option value="">
+Select Category
+</option>
+
+<option>Abstract Art</option>
+
+<option>Portrait Art</option>
+
+<option>Landscape Art</option>
+
+<option>Modern Art</option>
+
+<option>Traditional Art</option>
+
+<option>Digital Art</option>
+
+</select>
+
+
+<label for="message">
+Art Interests / Feedback
+</label>
+
+<textarea
+id="message"
+name="message"
+placeholder="Tell us about your favourite artworks or give your feedback"
+required
+minlength="10"
+maxlength="250"></textarea>
+
+
+<label for="color">
+Favourite Art Color
+</label>
+
+<input
+type="color"
+id="color"
+name="color"
+value="#795548">
+
+
+<label for="artwork">
+Upload Artwork / Profile Image
+</label>
+
+<input
+type="file"
+id="artwork"
+name="artwork"
+accept="image/*">
+
+
+<label for="interest">
+Interest in Art
+</label>
+
+<input
+type="range"
+id="interest"
+name="interest"
+min="0"
+max="100"
+value="50">
+
+
+<br>
+
+
+<input
+type="submit"
+value="Register">
+
+
+<input
+type="reset"
+value="Reset">
+
+
+</form>
+
+</section>
+
+
+<!-- CONTACT INFORMATION -->
+
+<section id="contact" class="contact">
+
+<h2>Contact Information</h2>
+
+<p>
+
+Email :
+
+<a href="mailto:artgallery@gmail.com">
+
+artgallery@gmail.com
+
+</a>
+
+</p>
+
+<br>
+
+
+<p>
+
+Phone :
+
+<a href="tel:+919876543210">
+
++91 9876543210
+
+</a>
+
+</p>
+
+<br>
+
+
+<p>
+
+Official Website :
+
+<a
+href="https://artsandculture.google.com/"
+target="_blank">
+
+Google Arts & Culture
+
+</a>
+
+</p>
+
+<br>
+
+
+<p>
+
+<a href="#home">
+
+Back To Top ↑
+
+</a>
+
+</p>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© 2026 Art Gallery</p>
+
+</footer>
+
+
+</main>
+
+</body>
+</html>
