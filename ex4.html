@@ -1,0 +1,2484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Art Gallery</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f5f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    background: #5d4037;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    /* ROUNDED CORNERS */
+
+    border-radius: 15px 50px 30px 5px;
+}
+
+header h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(35px, 7vw, 60px);
+
+    margin-bottom: 8px;
+}
+
+header p {
+
+    font-size: 16px;
+
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav {
+
+    background: #795548;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+.nav-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+nav ul {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    list-style: none;
+}
+
+nav li a {
+
+    display: block;
+
+    color: white;
+
+    font-weight: bold;
+
+    padding: 15px 17px;
+}
+
+nav li a:hover {
+
+    background: #5d4037;
+
+    color: #ffd54f;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+section {
+
+    padding: 60px 6%;
+}
+
+section > h2 {
+
+    text-align: center;
+
+    color: #5d4037;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(30px, 5vw, 45px);
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    text-align: center;
+
+    padding: 65px 20px;
+
+
+    /* CONCEPT 1:
+       ROUNDED CORNERS */
+
+    border-radius:
+        15px 50px 30px 5px;
+
+
+    /* CONCEPT 3:
+       MULTIPLE BACKGROUNDS */
+
+    background-image:
+
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(255,255,255,0.7) 0 70px,
+            transparent 71px
+        ),
+
+        linear-gradient(
+            135deg,
+            #efebe9,
+            #d7ccc8
+        );
+
+    background-position:
+
+        right top,
+        left top;
+
+    background-repeat:
+
+        no-repeat,
+        no-repeat;
+}
+
+.hero h2 {
+
+    font-family: Georgia, serif;
+
+    color: #5d4037;
+
+    font-size: clamp(35px, 6vw, 52px);
+
+    margin-bottom: 15px;
+}
+
+.hero p {
+
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.hero img {
+
+    width: 90%;
+
+    max-width: 850px;
+
+    height: 320px;
+
+    object-fit: cover;
+
+    margin: 25px auto;
+
+    border-radius:
+        15px 50px 30px 5px;
+}
+
+.button {
+
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    background: #795548;
+
+    color: white;
+
+    font-weight: bold;
+
+    border-radius: 25px;
+}
+
+.button:hover {
+
+    background: #5d4037;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+#about {
+
+    /* CONCEPT 4:
+       BACKGROUND SIZE */
+
+    background-image:
+
+        url("https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=900&q=80");
+
+    background-size:
+        220px 160px;
+
+    background-position:
+        right bottom;
+
+    background-repeat:
+        no-repeat;
+}
+
+.about-content {
+
+    background: rgba(255,255,255,0.85);
+
+    padding: 25px;
+
+    border-radius: 15px;
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 25px;
+}
+
+
+/* =====================================================
+   ART CARD
+===================================================== */
+
+.card {
+
+    flex: 1 1 300px;
+
+    max-width: 350px;
+
+    background: white;
+
+    padding: 15px;
+
+    text-align: center;
+
+
+    /* CONCEPT 2:
+       BORDER IMAGE */
+
+    border: 12px solid transparent;
+
+    border-image:
+
+        linear-gradient(
+            45deg,
+            #795548,
+            #d7ccc8,
+            #5d4037
+        ) 30 round;
+
+
+    /* ROUNDED CORNERS */
+
+    border-radius:
+        15px 50px 30px 5px;
+
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.15);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+
+    transform: translateY(-6px);
+}
+
+.card > img:first-child {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+.card h3 {
+
+    color: #5d4037;
+
+    font-family: Georgia, serif;
+
+    margin: 12px 0;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   CONCEPT 6:
+   ADJACENT SIBLING SELECTOR
+===================================================== */
+
+.itemImg {
+
+    width: 100%;
+
+    height: 100px;
+
+    object-fit: cover;
+
+    opacity: 0.2;
+
+    border-radius: 8px;
+
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
+}
+
+
+/* The image immediately after
+   .itemName changes */
+
+.itemName:hover + .itemImg {
+
+    opacity: 1;
+
+    transform:
+        scale(1.04);
+}
+
+.card p {
+
+    margin-top: 12px;
+}
+
+.tag {
+
+    display: inline-block;
+
+    background: #eee3e1;
+
+    color: #5d4037;
+
+    padding: 5px 10px;
+
+    border-radius: 15px;
+
+    font-size: 12px;
+
+    margin-top: 8px;
+}
+
+
+/* =====================================================
+   ARTISTS
+===================================================== */
+
+.table-container {
+
+    overflow-x: auto;
+}
+
+#artistsTable {
+
+    width: 100%;
+
+    min-width: 600px;
+
+    border-collapse: collapse;
+}
+
+#artistsTable th,
+#artistsTable td {
+
+    padding: 12px;
+
+    border: 1px solid #999;
+
+    text-align: center;
+}
+
+#artistsTable th {
+
+    background: #795548;
+
+    color: white;
+}
+
+
+/* =====================================================
+   CONCEPT 7:
+   NTH-CHILD
+===================================================== */
+
+#artistsTable tr:nth-child(odd) {
+
+    background-color: #f2f2f2;
+}
+
+#artistsTable tr:nth-child(even) {
+
+    background-color: #dbeeff;
+}
+
+#artistsTable tr:hover {
+
+    background-color: #ffd966;
+}
+
+
+/* =====================================================
+   LISTS
+===================================================== */
+
+.lists {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius:
+        15px 50px 30px 5px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.1);
+}
+
+ol,
+ul,
+dl {
+
+    margin: 15px 0 15px 30px;
+}
+
+dt {
+
+    color: #5d4037;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   ASIDE
+===================================================== */
+
+aside {
+
+    background: #d7ccc8;
+
+    padding: 25px;
+
+    margin: 20px 6%;
+
+    border-left: 5px solid #795548;
+
+    border-radius:
+        15px 50px 30px 5px;
+}
+
+
+/* =====================================================
+   ADVANCED CSS3 SHOWCASE
+===================================================== */
+
+#showcase {
+
+    background: #eee3e1;
+}
+
+.showcase-intro {
+
+    max-width: 800px;
+
+    margin: 0 auto 35px;
+
+    text-align: center;
+}
+
+.showcase-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.showcase-card {
+
+    background: white;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.15);
+
+    min-height: 250px;
+}
+
+.showcase-card h3 {
+
+    color: #5d4037;
+
+    font-family: Georgia, serif;
+
+    margin: 10px 0 15px;
+}
+
+.concept-label {
+
+    display: inline-block;
+
+    background: #795548;
+
+    color: white;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   SHOWCASE 1:
+   ROUNDED CORNERS
+===================================================== */
+
+.demo-rounded {
+
+    width: 190px;
+
+    height: 100px;
+
+    margin: 20px auto;
+
+    background: #795548;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    /* ROUNDED CORNERS */
+
+    border-radius:
+        15px 50px 30px 5px;
+}
+
+
+/* =====================================================
+   SHOWCASE 2:
+   BORDER IMAGE
+===================================================== */
+
+.demo-border {
+
+    width: 190px;
+
+    height: 100px;
+
+    margin: 20px auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: white;
+
+
+    /* BORDER IMAGE */
+
+    border: 15px solid transparent;
+
+    border-image:
+
+        linear-gradient(
+            45deg,
+            #795548,
+            #d7ccc8,
+            #5d4037
+        ) 30 round;
+}
+
+
+/* =====================================================
+   SHOWCASE 3:
+   MULTIPLE BACKGROUNDS
+===================================================== */
+
+.demo-background {
+
+    width: 230px;
+
+    height: 120px;
+
+    margin: 20px auto;
+
+
+    /* MULTIPLE BACKGROUNDS */
+
+    background-image:
+
+        radial-gradient(
+            circle at 25% 25%,
+            white 0 20px,
+            transparent 21px
+        ),
+
+        radial-gradient(
+            circle at 75% 70%,
+            #d7ccc8 0 30px,
+            transparent 31px
+        ),
+
+        linear-gradient(
+            135deg,
+            #795548,
+            #efebe9
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    font-weight: bold;
+
+    border-radius: 15px;
+}
+
+
+/* =====================================================
+   SHOWCASE 4:
+   BACKGROUND SIZE
+===================================================== */
+
+.demo-size {
+
+    width: 230px;
+
+    height: 120px;
+
+    margin: 20px auto;
+
+
+    /* BACKGROUND SIZE */
+
+    background-image:
+
+        url("istockphoto-1369129023-612x612.jpg");
+
+    background-size:
+        80px 60px;
+
+    background-position:
+        center;
+
+    background-repeat:
+        no-repeat;
+
+    background-color:
+        #eee3e1;
+
+    border:
+        2px solid #795548;
+
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   SHOWCASE 5:
+   FORM PSEUDO-CLASSES
+===================================================== */
+
+.demo-form {
+
+    max-width: 280px;
+
+    margin: 20px auto;
+}
+
+.demo-form input {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-bottom: 10px;
+
+    border: 2px solid #aaa;
+
+    border-radius: 5px;
+}
+
+
+/* :REQUIRED */
+
+.demo-form input:required {
+
+    border: 3px solid blue;
+
+    background: lightyellow;
+}
+
+
+/* :FOCUS */
+
+.demo-form input:focus {
+
+    outline: none;
+
+    border: 3px solid red;
+
+    background: #e9ffe9;
+}
+
+
+/* :VALID */
+
+.demo-form input:valid {
+
+    color: blue;
+}
+
+
+/* :INVALID */
+
+.demo-form input:invalid {
+
+    color: red;
+}
+
+
+/* =====================================================
+   SHOWCASE 6:
+   ADJACENT SIBLING
+===================================================== */
+
+.demo-sibling {
+
+    margin: 20px auto;
+}
+
+.demo-sibling h4 {
+
+    color: #5d4037;
+
+    cursor: pointer;
+
+    margin-bottom: 10px;
+}
+
+
+/* ADJACENT SIBLING + */
+
+.demo-sibling h4:hover + img {
+
+    opacity: 1;
+
+    transform:
+        scale(1.08);
+}
+
+.demo-sibling img {
+
+    width: 160px;
+
+    height: 95px;
+
+    object-fit: cover;
+
+    margin: auto;
+
+    opacity: 0.2;
+
+    border-radius: 8px;
+
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
+}
+
+
+/* =====================================================
+   SHOWCASE 7:
+   NTH-CHILD
+===================================================== */
+
+.demo-table {
+
+    width: 90%;
+
+    margin: 20px auto;
+
+    border-collapse: collapse;
+}
+
+.demo-table td {
+
+    padding: 9px;
+
+    border: 1px solid #999;
+}
+
+
+/* ODD */
+
+.demo-table tr:nth-child(odd) {
+
+    background-color: #f2f2f2;
+}
+
+
+/* EVEN */
+
+.demo-table tr:nth-child(even) {
+
+    background-color: #dbeeff;
+}
+
+
+/* =====================================================
+   REGISTRATION
+===================================================== */
+
+#registration {
+
+    background: #f1e7e4;
+}
+
+.form-box {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    padding: 35px;
+
+    background: white;
+
+    border-radius:
+        15px 50px 30px 5px;
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.15);
+}
+
+.form-group {
+
+    margin-bottom: 18px;
+}
+
+.form-group label {
+
+    display: block;
+
+    color: #5d4037;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="password"],
+.form-box input[type="number"],
+.form-box input[type="date"],
+.form-box select,
+.form-box textarea {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 5px;
+
+    font-size: 15px;
+}
+
+.form-box textarea {
+
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+
+/* =====================================================
+   FORM PSEUDO CLASSES
+===================================================== */
+
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus {
+
+    outline: none;
+
+    border: 3px solid red;
+
+    background: #e9ffe9;
+}
+
+.form-box input:required,
+.form-box select:required,
+.form-box textarea:required {
+
+    border: 3px solid blue;
+
+    background: lightyellow;
+}
+
+.form-box input:valid,
+.form-box select:valid,
+.form-box textarea:valid {
+
+    color: blue;
+}
+
+.form-box input:invalid,
+.form-box select:invalid,
+.form-box textarea:invalid {
+
+    color: red;
+}
+
+
+/* =====================================================
+   FORM OPTIONS
+===================================================== */
+
+.choice {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+}
+
+.choice label {
+
+    font-weight: normal;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+
+    width: auto !important;
+}
+
+input[type="color"] {
+
+    width: 70px;
+
+    height: 45px;
+}
+
+input[type="range"] {
+
+    width: 100%;
+}
+
+input[type="file"] {
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px dashed #aaa;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.buttons input {
+
+    flex: 1;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.submit {
+
+    background: #795548;
+}
+
+.reset {
+
+    background: #555;
+}
+
+.buttons input:hover {
+
+    opacity: 0.85;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+
+    text-align: center;
+}
+
+.contact a {
+
+    color: #5d4037;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    background: #5d4037;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+@media screen and (max-width: 900px) {
+
+    .showcase-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+
+        flex: 1 1 45%;
+    }
+
+}
+
+
+@media screen and (max-width: 767px) {
+
+    header {
+
+        padding: 25px 15px;
+    }
+
+    header h1 {
+
+        font-size: 38px;
+    }
+
+    nav ul {
+
+        flex-direction: column;
+    }
+
+    nav li {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+    nav li a {
+
+        padding: 11px;
+    }
+
+    section {
+
+        padding: 45px 20px;
+    }
+
+    .hero {
+
+        padding: 45px 15px;
+    }
+
+    .hero img {
+
+        height: 220px;
+
+        width: 100%;
+    }
+
+    .gallery {
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .card {
+
+        width: 100%;
+
+        max-width: 500px;
+    }
+
+    .form-box {
+
+        padding: 25px 18px;
+    }
+
+    .choice {
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .buttons {
+
+        flex-direction: column;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+    header h1 {
+
+        font-size: 32px;
+    }
+
+    header p {
+
+        font-size: 14px;
+    }
+
+    .hero h2 {
+
+        font-size: 32px;
+    }
+
+    .showcase-card {
+
+        padding: 20px 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header id="home">
+
+    <h1>
+        Art Gallery
+    </h1>
+
+    <p>
+        Discover Creativity • Explore Paintings • Celebrate Art
+    </p>
+
+    <p>
+        Designed by Divakaran M | URK24CS1200
+    </p>
+
+</header>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+<div class="nav-container">
+
+<ul>
+
+    <li>
+        <a href="#home">
+            Home
+        </a>
+    </li>
+
+    <li>
+        <a href="#about">
+            About
+        </a>
+    </li>
+
+    <li>
+        <a href="#gallery">
+            Gallery
+        </a>
+    </li>
+
+    <li>
+        <a href="#artists">
+            Artists
+        </a>
+    </li>
+
+    <li>
+        <a href="#showcase">
+            CSS3 Showcase
+        </a>
+    </li>
+
+    <li>
+        <a href="#registration">
+            Registration
+        </a>
+    </li>
+
+    <li>
+        <a href="#contact">
+            Contact
+        </a>
+    </li>
+
+</ul>
+
+</div>
+
+</nav>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <h2>
+        Welcome to Art Gallery
+    </h2>
+
+    <p>
+        Explore beautiful paintings, sculptures,
+        digital artworks and creative masterpieces.
+    </p>
+
+    <br>
+
+    <a
+        href="#gallery"
+        class="button">
+
+        Explore Gallery
+
+    </a>
+
+
+    <img
+        src="istockphoto-1369129023-612x612.jpg"
+        alt="Art Gallery">
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+    <h2>
+        About Art Gallery
+    </h2>
+
+    <div class="about-content">
+
+        <p>
+
+            Art is a creative form of expression
+            that communicates ideas, emotions and
+            imagination through different mediums.
+
+        </p>
+
+        <br>
+
+        <p>
+
+            Our Art Gallery presents abstract,
+            portrait and landscape artworks while
+            providing visitors with an enjoyable
+            digital gallery experience.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section id="gallery">
+
+    <h2>
+        Gallery Collection
+    </h2>
+
+
+    <div class="gallery">
+
+
+        <!-- ABSTRACT -->
+
+        <div class="card">
+
+            <img
+                src="istockphoto-1369129023-612x612.jpg"
+                alt="Abstract Art">
+
+            <h3 class="itemName">
+                Abstract Art
+            </h3>
+
+            <img
+                class="itemImg"
+                src="istockphoto-1369129023-612x612.jpg"
+                alt="Abstract Art Detail">
+
+            <span class="tag">
+                Abstract
+            </span>
+
+            <p>
+
+                Abstract art expresses emotions
+                through colors, shapes and patterns.
+
+            </p>
+
+        </div>
+
+
+        <!-- PORTRAIT -->
+
+        <div class="card">
+
+            <img
+                src="images.jpg"
+                alt="Portrait Art">
+
+            <h3 class="itemName">
+                Portrait Art
+            </h3>
+
+            <img
+                class="itemImg"
+                src="images.jpg"
+                alt="Portrait Art Detail">
+
+            <span class="tag">
+                Portrait
+            </span>
+
+            <p>
+
+                Portrait art focuses on people,
+                expressions and individual character.
+
+            </p>
+
+        </div>
+
+
+        <!-- LANDSCAPE -->
+
+        <div class="card">
+
+            <img
+                src="1763622344903-202001819_original.jpg"
+                alt="Landscape Art">
+
+            <h3 class="itemName">
+                Landscape Art
+            </h3>
+
+            <img
+                class="itemImg"
+                src="1763622344903-202001819_original.jpg"
+                alt="Landscape Art Detail">
+
+            <span class="tag">
+                Landscape
+            </span>
+
+            <p>
+
+                Landscape art represents natural
+                scenery, environments and surroundings.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ARTISTS
+===================================================== -->
+
+<section id="artists">
+
+    <h2>
+        Famous Artists
+    </h2>
+
+
+    <div class="lists">
+
+
+        <div class="table-container">
+
+            <table id="artistsTable">
+
+                <tr>
+
+                    <th>
+                        Artist
+                    </th>
+
+                    <th>
+                        Country
+                    </th>
+
+                    <th>
+                        Famous Painting
+                    </th>
+
+                    <th>
+                        Year
+                    </th>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Leonardo da Vinci
+                    </td>
+
+                    <td>
+                        Italy
+                    </td>
+
+                    <td>
+                        Mona Lisa
+                    </td>
+
+                    <td>
+                        1503
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Vincent van Gogh
+                    </td>
+
+                    <td>
+                        Netherlands
+                    </td>
+
+                    <td>
+                        Starry Night
+                    </td>
+
+                    <td>
+                        1889
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Pablo Picasso
+                    </td>
+
+                    <td>
+                        Spain
+                    </td>
+
+                    <td>
+                        Guernica
+                    </td>
+
+                    <td>
+                        1937
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Claude Monet
+                    </td>
+
+                    <td>
+                        France
+                    </td>
+
+                    <td>
+                        Water Lilies
+                    </td>
+
+                    <td>
+                        1916
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <br>
+
+
+        <h3>
+            Popular Art Categories
+        </h3>
+
+
+        <ol>
+
+            <li>
+                Painting
+
+                <ol>
+
+                    <li>
+                        Oil Painting
+                    </li>
+
+                    <li>
+                        Watercolor
+                    </li>
+
+                    <li>
+                        Acrylic
+                    </li>
+
+                </ol>
+
+            </li>
+
+
+            <li>
+                Sculpture
+
+                <ol>
+
+                    <li>
+                        Stone
+                    </li>
+
+                    <li>
+                        Metal
+                    </li>
+
+                </ol>
+
+            </li>
+
+        </ol>
+
+
+        <h3>
+            Important Art Terms
+        </h3>
+
+
+        <dl>
+
+            <dt>
+                Canvas
+            </dt>
+
+            <dd>
+                Surface used for painting.
+            </dd>
+
+
+            <dt>
+                Gallery
+            </dt>
+
+            <dd>
+                A place where artworks are displayed.
+            </dd>
+
+
+            <dt>
+                Exhibition
+            </dt>
+
+            <dd>
+                A public display of artworks.
+            </dd>
+
+        </dl>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ASIDE
+===================================================== -->
+
+<aside>
+
+    <h3>
+        Did You Know?
+    </h3>
+
+    <p>
+
+        Art galleries help preserve,
+        display and promote creative
+        works from different artists.
+
+    </p>
+
+</aside>
+
+
+<!-- =====================================================
+     ADVANCED CSS3 SHOWCASE
+===================================================== -->
+
+<section id="showcase">
+
+    <h2>
+        Advanced CSS3 Showcase
+    </h2>
+
+
+    <div class="showcase-intro">
+
+        <p>
+
+            The following demonstrations show the
+            Advanced CSS3 concepts implemented in
+            this Art Gallery website.
+
+        </p>
+
+    </div>
+
+
+    <div class="showcase-grid">
+
+
+        <!-- =================================================
+             1. ROUNDED CORNERS
+        ================================================= -->
+
+        <div class="showcase-card">
+
+            <span class="concept-label">
+                Concept 1
+            </span>
+
+            <h3>
+                Rounded Corners
+            </h3>
+
+            <p>
+                Uses the
+                <b>border-radius</b>
+                property.
+            </p>
+
+
+            <div class="demo-rounded">
+
+                Rounded Corners
+
+            </div>
+
+            <small>
+                border-radius: 15px 50px 30px 5px;
+            </small>
+
+        </div>
+
+
+        <!-- =================================================
+             2. BORDER IMAGE
+        ================================================= -->
+
+        <div class="showcase-card">
+
+            <span class="concept-label">
+                Concept 2
+            </span>
+
+            <h3>
+                Border Image
+            </h3>
+
+            <p>
+                Uses the
+                <b>border-image</b>
+                property.
+            </p>
+
+
+            <div class="demo-border">
+
+                Border Image
+
+            </div>
+
+            <small>
+                Gradient border using border-image
+            </small>
+
+        </div>
+
+
+        <!-- =================================================
+             3. MULTIPLE BACKGROUNDS
+        ================================================= -->
+
+        <div class="showcase-card">
+
+            <span class="concept-label">
+                Concept 3
+            </span>
+
+            <h3>
+                Multiple Backgrounds
+            </h3>
+
+            <p>
+                Multiple background layers are
+                applied to the same element.
+            </p>
+
+
+            <div class="demo-background">
+
+                Multiple Backgrounds
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             4. BACKGROUND SIZE
+        ================================================= -->
+
+        <div class="showcase-card">
+
+            <span class="concept-label">
+                Concept 4
+            </span>
+
+            <h3>
+                Background Size
+            </h3>
+
+            <p>
+                Controls the dimensions of
+                a background image.
+            </p>
+
+
+            <div class="demo-size">
+            </div>
+
+            <small>
+                background-size: 80px 60px;
+            </small>
+
+        </div>
+
+
+        <!-- =================================================
+             5. FORM PSEUDO CLASSES
+        ================================================= -->
+
+        <div class="showcase-card">
+
+            <span class="concept-label">
+                Concept 5
+            </span>
+
+            <h3>
+                Form Pseudo-Classes
+            </h3>
+
+            <p>
+                Demonstrates
+                <b>:focus</b>,
+                <b>:required</b>,
+                <b>:valid</b> and
+                <b>:invalid</b>.
+            </p>
+
+
+            <div class="demo-form">
+
+                <input
+                    type="text"
+                    placeholder="Click and type"
+                    required
+                    minlength="3">
+
+
+                <input
+                    type="email"
+                    placeholder="Enter email"
+                    required>
+
+            </div>
+
+
+            <small>
+                Click inside the fields to see
+                the CSS3 effects.
+            </small>
+
+        </div>
+
+
+        <!-- =================================================
+             6. ADJACENT SIBLING
+        ================================================= -->
+
+        <div class="showcase-card">
+
+            <span class="concept-label">
+                Concept 6
+            </span>
+
+            <h3>
+                Adjacent Sibling Selector
+            </h3>
+
+            <p>
+                Uses the
+                <b>+</b>
+                selector.
+            </p>
+
+
+            <div class="demo-sibling">
+
+                <h4>
+                    Hover over this title
+                </h4>
+
+
+                <img
+                    src="istockphoto-1369129023-612x612.jpg"
+                    alt="Adjacent Sibling Demo">
+
+            </div>
+
+
+            <small>
+
+                Hover over the title to
+                reveal the image.
+
+            </small>
+
+        </div>
+
+
+        <!-- =================================================
+             7. NTH CHILD
+        ================================================= -->
+
+        <div class="showcase-card">
+
+            <span class="concept-label">
+                Concept 7
+            </span>
+
+            <h3>
+                nth-child()
+            </h3>
+
+            <p>
+                Styles odd and even rows
+                differently.
+            </p>
+
+
+            <table class="demo-table">
+
+                <tr>
+                    <td>
+                        Artwork 1
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Artwork 2
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Artwork 3
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Artwork 4
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Artwork 5
+                    </td>
+                </tr>
+
+            </table>
+
+
+            <small>
+
+                Odd and even rows use
+                different styles.
+
+            </small>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REGISTRATION
+===================================================== -->
+
+<section id="registration">
+
+    <h2>
+        Visitor Registration
+    </h2>
+
+
+    <div class="form-box">
+
+
+        <form>
+
+
+            <div class="form-group">
+
+                <label for="name">
+                    Visitor Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                    minlength="3">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="example@gmail.com"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    required
+                    minlength="6">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="age">
+                    Age
+                </label>
+
+                <input
+                    type="number"
+                    id="age"
+                    min="5"
+                    max="100"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="category">
+
+                    Preferred Art Category
+
+                </label>
+
+
+                <select
+                    id="category"
+                    required>
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option>
+                        Abstract Art
+                    </option>
+
+                    <option>
+                        Portrait Art
+                    </option>
+
+                    <option>
+                        Landscape Art
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="feedback">
+
+                    Feedback
+
+                </label>
+
+
+                <textarea
+                    id="feedback"
+                    placeholder="Enter your feedback"
+                    required
+                    minlength="10">
+                </textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Favourite Art Style
+                </label>
+
+
+                <div class="choice">
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="style"
+                            required>
+
+                        Classical
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="style">
+
+                        Modern
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="style">
+
+                        Contemporary
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Favourite Art Types
+                </label>
+
+
+                <div class="choice">
+
+                    <label>
+
+                        <input
+                            type="checkbox">
+
+                        Painting
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="checkbox">
+
+                        Sculpture
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="checkbox">
+
+                        Digital Art
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="color">
+
+                    Favourite Color
+
+                </label>
+
+
+                <input
+                    type="color"
+                    id="color"
+                    value="#795548">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="interest">
+
+                    Interest Level
+
+                </label>
+
+
+                <input
+                    type="range"
+                    id="interest"
+                    min="0"
+                    max="100"
+                    value="50">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="artwork">
+
+                    Upload Artwork
+
+                </label>
+
+
+                <input
+                    type="file"
+                    id="artwork"
+                    accept="image/*">
+
+            </div>
+
+
+            <div class="buttons">
+
+                <input
+                    type="submit"
+                    value="Register"
+                    class="submit">
+
+
+                <input
+                    type="reset"
+                    value="Reset"
+                    class="reset">
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact" class="contact">
+
+    <h2>
+        Contact Us
+    </h2>
+
+    <p>
+
+        Email:
+        <a href="mailto:artgallery@gmail.com">
+            artgallery@gmail.com
+        </a>
+
+    </p>
+
+    <p>
+        Phone: +91 9876543210
+    </p>
+
+    <br>
+
+    <a href="#home">
+        Back To Top ↑
+    </a>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <h3>
+        Art Gallery
+    </h3>
+    
+    <p>
+        Done by Divakaran M | URK24CS1200
+    </p>
+
+    <p>
+        © 2026 Art Gallery
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
