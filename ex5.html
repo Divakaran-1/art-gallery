@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Art Gallery</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f1ed;
+            color: #333;
+        }
+
+        header, footer {
+            background: #4e342e;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background: #795548;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+        }
+
+        .hero {
+            background: #d7ccc8;
+            text-align: center;
+            padding: 50px;
+        }
+
+        section {
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #5d4037;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px #aaa;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .program {
+            background: white;
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px #ccc;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+        }
+
+        button {
+            background: #795548;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #4e342e;
+        }
+
+        .output {
+            margin-top: 15px;
+            color: #5d4037;
+            font-weight: bold;
+        }
+
+        .fruit {
+            display: inline-block;
+            font-size: 35px;
+            padding: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #795548;
+            color: white;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        aside {
+            background: #d7ccc8;
+            padding: 20px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Art Gallery</h1>
+    <p>Explore the World of Creativity</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#programs">Programs</a>
+    <a href="#artists">Artists</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero" id="home">
+    <h1>Welcome to Art Gallery</h1>
+    <p>Discover beautiful artworks and creative designs.</p>
+</div>
+
+<section id="about">
+    <h2>About Our Gallery</h2>
+    <p>
+        Our Art Gallery displays different types of artworks
+        created by talented artists. Explore modern, classic,
+        portrait, landscape, nature and digital art.
+    </p>
+</section>
+
+<section id="gallery">
+    <h2>Gallery Collection</h2>
+
+    <input type="text" id="gallerySearch"
+           placeholder="Search artwork...">
+
+    <p id="galleryMessage"></p>
+
+    <div class="gallery">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500">
+            <h3>Abstract Art</h3>
+            <p>Creative and colourful paintings.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500">
+            <h3>Portrait Art</h3>
+            <p>Beautiful human face paintings.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=500">
+            <h3>Landscape Art</h3>
+            <p>Beautiful natural scenery.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=500">
+            <h3>Nature Art</h3>
+            <p>Artwork inspired by nature.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?w=500">
+            <h3>Classic Art</h3>
+            <p>Traditional paintings.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=500">
+            <h3>Digital Art</h3>
+            <p>Modern digital artwork.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- EXPERIMENT 5 PROGRAMS -->
+
+<section id="programs">
+    <h2>JavaScript Practical Programs</h2>
+
+    <!-- 1. Shortest and Longest Word -->
+    <div class="program">
+        <h3>1. Shortest and Longest Word</h3>
+
+        <input type="text" id="sentence"
+               placeholder="Enter a sentence">
+
+        <button onclick="findWords()">Find Words</button>
+
+        <p class="output" id="wordResult"></p>
+    </div>
+
+    <!-- 2. BMI Calculator -->
+    <div class="program">
+        <h3>2. BMI Calculator</h3>
+
+        <label>Weight (kg)</label>
+        <input type="number" id="weight" placeholder="Enter weight">
+
+        <label>Height (m)</label>
+        <input type="number" id="height" placeholder="Enter height">
+
+        <button onclick="calculateBMI()">Calculate BMI</button>
+
+        <p class="output" id="bmiResult"></p>
+    </div>
+
+    <!-- 3. Fruit Farm -->
+    <div class="program">
+        <h3>3. Fruit Farm</h3>
+
+        <label>Rows</label>
+        <input type="number" id="rows" placeholder="Enter rows">
+
+        <label>Columns</label>
+        <input type="number" id="columns" placeholder="Enter columns">
+
+        <button onclick="grow()">Plant Garden</button>
+
+        <div id="garden" class="output"></div>
+    </div>
+
+    <!-- 4. Currency Converter -->
+    <div class="program">
+        <h3>4. Currency Converter</h3>
+
+        <input type="number" id="amount" placeholder="Enter amount">
+
+        <select id="from">
+            <option value="INR">Indian Rupee</option>
+            <option value="USD">US Dollar</option>
+        </select>
+
+        <label>Convert To</label>
+
+        <select id="to">
+            <option value="USD">US Dollar</option>
+            <option value="INR">Indian Rupee</option>
+        </select>
+
+        <button onclick="convert()">Convert</button>
+
+        <p class="output" id="currencyResult"></p>
+    </div>
+
+    <!-- 5. Coin Flip -->
+    <div class="program">
+        <h3>5. Coin Flip</h3>
+
+        <h1 id="coin" style="text-align:center;">🪙</h1>
+
+        <button onclick="flipCoin()">Flip!</button>
+
+        <p class="output">
+            Heads Total: <span id="num_heads">0</span>
+            <br><br>
+            Tails Total: <span id="num_tails">0</span>
+        </p>
+    </div>
+
+    <!-- 6. Birthday Cake Order Form -->
+    <div class="program">
+        <h3>6. Birthday Cake Order Form</h3>
+
+        <label>Number of 1/2 kg Cakes (Rs.100)</label>
+        <input type="number" id="small" value="0" min="0">
+
+        <label>Number of 1 kg Cakes (Rs.200)</label>
+        <input type="number" id="medium" value="0" min="0">
+
+        <label>Number of 2 kg Cakes (Rs.400)</label>
+        <input type="number" id="large" value="0" min="0">
+
+        <label>Select Tip</label>
+        <select id="tip">
+            <option value="10">10%</option>
+            <option value="15" selected>15%</option>
+            <option value="20">20%</option>
+        </select>
+
+        <button onclick="calculateOrder()">Calculate Order</button>
+
+        <p class="output" id="price"></p>
+    </div>
+
+</section>
+
+<!-- Artists -->
+<section id="artists">
+    <h2>Famous Artists</h2>
+
+    <table>
+        <tr>
+            <th>Artist Name</th>
+            <th>Art Style</th>
+        </tr>
+        <tr>
+            <td>Leonardo da Vinci</td>
+            <td>Classic Art</td>
+        </tr>
+        <tr>
+            <td>Vincent van Gogh</td>
+            <td>Landscape Art</td>
+        </tr>
+        <tr>
+            <td>Pablo Picasso</td>
+            <td>Abstract Art</td>
+        </tr>
+    </table>
+</section>
+
+<aside>
+    <h3>Special Notice</h3>
+    <p>Visit our gallery to explore unique artworks.</p>
+</aside>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Visitor Registration</h2>
+
+    <form id="visitorForm">
+        Name:
+        <input type="text" id="name" required>
+
+        Email:
+        <input type="email" id="email" required>
+
+        Phone:
+        <input type="tel" id="phone">
+
+        Visit Date:
+        <input type="date" id="date">
+
+        Select Art Style:
+        <select id="art">
+            <option>Abstract Art</option>
+            <option>Portrait Art</option>
+            <option>Landscape Art</option>
+            <option>Nature Art</option>
+            <option>Classic Art</option>
+            <option>Digital Art</option>
+        </select>
+
+        Message:
+        <textarea id="message"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<footer>
+    <p>DIVAKARAN M</p>
+    <p>URK24CS1200</p>
+    <p>Exercise No: 5 - Art Gallery</p>
+    <p>© 2026 Art Gallery</p>
+</footer>
+
+<script>
+
+// 1. Shortest and Longest Word
+function findWords() {
+    var str = document.getElementById("sentence").value.trim();
+
+    if (!str) {
+        document.getElementById("wordResult").innerHTML =
+            "Please enter a sentence.";
+        return;
+    }
+
+    var words = str.split(/\s+/);
+    var shortest = words[0];
+    var longest = words[0];
+
+    for (var i = 0; i < words.length; i++) {
+        if (words[i].length < shortest.length) {
+            shortest = words[i];
+        }
+
+        if (words[i].length > longest.length) {
+            longest = words[i];
+        }
+    }
+
+    document.getElementById("wordResult").innerHTML =
+        "Shortest: " + shortest + "<br>Longest: " + longest;
+}
+
+// 2. BMI Calculator
+function calculateBMI() {
+    var weight = parseFloat(document.getElementById("weight").value);
+    var height = parseFloat(document.getElementById("height").value);
+
+    if (weight <= 0 || height <= 0 || isNaN(weight) || isNaN(height)) {
+        document.getElementById("bmiResult").innerHTML =
+            "Enter valid weight and height.";
+        return;
+    }
+
+    var bmi = weight / (height * height);
+    var type;
+
+    if (bmi < 18) {
+        type = "Underweight";
+    }
+    else if (bmi <= 25) {
+        type = "Normal";
+    }
+    else if (bmi <= 30) {
+        type = "Overweight";
+    }
+    else {
+        type = "Obese";
+    }
+
+    document.getElementById("bmiResult").innerHTML =
+        "BMI: " + bmi.toFixed(2) + "<br>Body Type: " + type;
+}
+
+// 3. Fruit Farm
+function grow() {
+    var rows = parseInt(document.getElementById("rows").value);
+    var cols = parseInt(document.getElementById("columns").value);
+    var garden = document.getElementById("garden");
+
+    garden.innerHTML = "";
+
+    if (!Number.isInteger(rows) || !Number.isInteger(cols) ||
+        rows < 1 || cols < 1 || rows * cols > 200) {
+        garden.innerHTML = "Enter valid rows and columns (maximum 200 fruits).";
+        return;
+    }
+
+    for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < cols; j++) {
+            var fruit = Math.random() < 0.5 ? "🍎" : "🍊";
+            garden.innerHTML += "<span class='fruit'>" + fruit + "</span>";
+        }
+        garden.innerHTML += "<br>";
+    }
+}
+
+// 4. Currency Converter
+function convert() {
+    var amount = parseFloat(document.getElementById("amount").value);
+    var from = document.getElementById("from").value;
+    var to = document.getElementById("to").value;
+    var result;
+
+    if (isNaN(amount) || amount < 0) {
+        document.getElementById("currencyResult").innerHTML =
+            "Enter a valid amount.";
+        return;
+    }
+
+    if (from == to) {
+        result = amount;
+    }
+    else if (from == "INR" && to == "USD") {
+        result = amount * 0.015;
+    }
+    else {
+        result = amount * 67.12;
+    }
+
+    document.getElementById("currencyResult").innerHTML =
+        "Converted Amount: " + result.toFixed(2) + " " + to;
+}
+
+// 5. Coin Flip
+var heads = 0;
+var tails = 0;
+
+function flipCoin() {
+    var result = Math.random() < 0.5 ? "Heads" : "Tails";
+
+    if (result == "Heads") {
+        heads++;
+        document.getElementById("coin").innerHTML = "🪙 HEADS";
+    }
+    else {
+        tails++;
+        document.getElementById("coin").innerHTML = "🪙 TAILS";
+    }
+
+    document.getElementById("num_heads").innerHTML = heads;
+    document.getElementById("num_tails").innerHTML = tails;
+}
+
+// 6. Birthday Cake Order Form
+function calculateOrder() {
+    var small = Number(document.getElementById("small").value);
+    var medium = Number(document.getElementById("medium").value);
+    var large = Number(document.getElementById("large").value);
+    var tip = Number(document.getElementById("tip").value);
+
+    if ([small, medium, large].some(function(n) {
+        return !Number.isInteger(n) || n < 0;
+    })) {
+        document.getElementById("price").innerHTML =
+            "Enter valid cake quantities.";
+        return;
+    }
+
+    var total = (small * 100) + (medium * 200) + (large * 400);
+    var tax = total * 0.09;
+    var tipAmount = (total + tax) * tip / 100;
+    var finalPrice = total + tax + tipAmount;
+
+    document.getElementById("price").innerHTML =
+        "Cake Cost: Rs. " + total.toFixed(2) +
+        "<br>Tax (9%): Rs. " + tax.toFixed(2) +
+        "<br>Tip (" + tip + "%): Rs. " + tipAmount.toFixed(2) +
+        "<br>Total Cost: Rs. " + finalPrice.toFixed(2);
+}
+
+// DOM and Events
+document.addEventListener("DOMContentLoaded", function() {
+
+    var cards = document.getElementsByClassName("card");
+    var gallery = document.getElementById("gallery");
+    var search = document.getElementById("gallerySearch");
+
+    document.getElementById("galleryMessage").innerHTML =
+        "Total Artworks: " + cards.length;
+
+    // Keyup Event
+    search.addEventListener("keyup", function() {
+        var value = search.value.toLowerCase();
+        var count = 0;
+
+        for (var i = 0; i < cards.length; i++) {
+            if (cards[i].textContent.toLowerCase().includes(value)) {
+                cards[i].style.display = "";
+                count++;
+            }
+            else {
+                cards[i].style.display = "none";
+            }
+        }
+
+        document.getElementById("galleryMessage").innerHTML =
+            count + " Artworks Found";
+    });
+
+    // Click Event
+    gallery.addEventListener("click", function(event) {
+        var card = event.target.closest(".card");
+
+        if (card) {
+            alert("Selected Artwork: " +
+                card.querySelector("h3").textContent);
+        }
+    });
+
+    // Mouseover and Mouseout Events
+    gallery.addEventListener("mouseover", function(event) {
+        var card = event.target.closest(".card");
+        if (card) {
+            card.style.backgroundColor = "#d7ccc8";
+        }
+    });
+
+    gallery.addEventListener("mouseout", function(event) {
+        var card = event.target.closest(".card");
+        if (card && !card.contains(event.relatedTarget)) {
+            card.style.backgroundColor = "white";
+        }
+    });
+
+    // Focus and Blur Events
+    var name = document.getElementById("name");
+
+    name.addEventListener("focus", function() {
+        name.style.backgroundColor = "#fff3cd";
+    });
+
+    name.addEventListener("blur", function() {
+        name.style.backgroundColor = "white";
+    });
+
+    // Change Event
+    document.getElementById("art").addEventListener("change", function() {
+        alert("Selected Art Style: " + this.value);
+    });
+
+    // Submit Event
+    document.getElementById("visitorForm").addEventListener("submit",
+        function(event) {
+            event.preventDefault();
+            alert("Thank you! Registration successful.");
+        });
+
+});
+
+</script>
+
+</body>
+</html>
