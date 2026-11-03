@@ -1,0 +1,1041 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Gallery - Divakaran</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #101010;
+    color: white;
+    line-height: 1.6;
+}
+
+header, footer {
+    background: #080808;
+    color: #d4af37;
+    text-align: center;
+    padding: 22px;
+    border-bottom: 1px solid #d4af37;
+}
+
+nav {
+    background: #1c1c1c;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+section {
+    padding: 40px 7%;
+}
+
+h2 {
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(120deg, #171717, #493b1b);
+}
+
+.hero h2 {
+    font-size: 38px;
+}
+
+button {
+    background: #d4af37;
+    color: black;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #f5d76e;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 11px;
+    margin: 8px 0;
+    border: 1px solid #806b2c;
+    border-radius: 5px;
+    background: #252525;
+    color: white;
+}
+
+.gallery, .programs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card, .program {
+    background: #1c1c1c;
+    padding: 18px;
+    border: 1px solid #806b2c;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3, .program h3 {
+    color: #d4af37;
+    margin: 10px 0;
+}
+
+.result {
+    color: #e5c65a;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1c1c1c;
+}
+
+th, td {
+    border: 1px solid #806b2c;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    color: #d4af37;
+}
+
+#artGrid {
+    display: grid;
+    gap: 5px;
+    margin-top: 12px;
+}
+
+.artTile {
+    background: #493b1b;
+    padding: 15px;
+    text-align: center;
+    font-size: 25px;
+}
+
+#artTrack {
+    height: 75px;
+    background: #333;
+    position: relative;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+#movingArtwork {
+    position: absolute;
+    font-size: 40px;
+    left: 0;
+}
+
+.budget-results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.budget-box {
+    background: #493b1b;
+    color: #d4af37;
+    padding: 12px;
+    text-align: center;
+}
+
+.art-item {
+    text-align: center;
+    background: #292929;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.art-image {
+    font-size: 40px;
+}
+
+#framePreview {
+    width: 180px;
+    height: 130px;
+    margin: 20px auto;
+    background: linear-gradient(45deg, #777, #d4af37);
+    border: 12px solid #d4af37;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin: 8px 0;
+}
+
+@media(max-width:600px) {
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .hero h2 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ART GALLERY</h1>
+    <p>Explore the World of Creativity</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#artists">Artists</a>
+    <a href="#exp5">Exp 5</a>
+    <a href="#exp6">Exp 6</a>
+    <a href="#exp7">Exp 7</a>
+    <a href="#exp8">Exp 8</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <h2>Welcome to Art Gallery</h2>
+    <p>Discover beautiful paintings and creative artworks.</p>
+    <button onclick="alert('Welcome to Art Gallery!')">
+        Explore Gallery
+    </button>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+        Art Gallery is a creative platform to explore different types
+        of artwork, including abstract art, classic paintings,
+        landscapes, portraits, nature and digital art.
+    </p>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <h2>Our Art Gallery</h2>
+
+    <input type="text" id="searchArt" placeholder="Search artwork...">
+
+    <div class="gallery" id="galleryItems">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500" alt="Abstract Art">
+            <h3>Abstract Art</h3>
+            <p>Creative and colourful artwork.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500" alt="Portrait Art">
+            <h3>Portrait Art</h3>
+            <p>Beautiful human portraits.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=500" alt="Landscape Art">
+            <h3>Landscape Art</h3>
+            <p>Wonderful natural landscapes.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500" alt="Nature Art">
+            <h3>Nature Art</h3>
+            <p>Beautiful nature scenes.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?w=500" alt="Classic Painting">
+            <h3>Classic Painting</h3>
+            <p>Traditional painting styles.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=500" alt="Digital Art">
+            <h3>Digital Art</h3>
+            <p>Modern digital creativity.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ARTISTS -->
+<section id="artists">
+    <h2>Famous Artists</h2>
+
+    <table>
+        <tr>
+            <th>Artist Name</th>
+            <th>Famous Artwork</th>
+        </tr>
+        <tr>
+            <td>Leonardo da Vinci</td>
+            <td>Mona Lisa</td>
+        </tr>
+        <tr>
+            <td>Vincent van Gogh</td>
+            <td>Starry Night</td>
+        </tr>
+        <tr>
+            <td>Pablo Picasso</td>
+            <td>Modern Art</td>
+        </tr>
+    </table>
+</section>
+
+<!-- EXPERIMENT 5 -->
+<section id="exp5">
+<h2>Experiment 5 - JavaScript DOM and Events</h2>
+
+<div class="programs">
+
+    <div class="program">
+        <h3>1. Artwork Title Analyzer</h3>
+        <input id="sentence" placeholder="Enter artwork titles">
+        <button onclick="findWords()">Find Words</button>
+        <p id="wordResult" class="result"></p>
+    </div>
+
+    <div class="program">
+        <h3>2. Frame Area Calculator</h3>
+        <input type="number" id="frameWidth" placeholder="Width">
+        <input type="number" id="frameHeight" placeholder="Height">
+        <button onclick="calculateFrame()">Calculate</button>
+        <p id="frameResult" class="result"></p>
+    </div>
+
+    <div class="program">
+        <h3>3. Artwork Grid Generator</h3>
+        <input type="number" id="rows" placeholder="Rows">
+        <input type="number" id="cols" placeholder="Columns">
+        <button onclick="growArt()">Generate</button>
+        <div id="artGrid"></div>
+    </div>
+
+    <div class="program">
+        <h3>4. Artwork Price Converter</h3>
+        <input type="number" id="amount" placeholder="Enter price">
+        <select id="currencyFrom">
+            <option value="INR">INR</option>
+            <option value="USD">USD</option>
+        </select>
+        <select id="currencyTo">
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+        </select>
+        <button onclick="convertPrice()">Convert</button>
+        <p id="currencyResult" class="result"></p>
+    </div>
+
+    <div class="program">
+        <h3>5. Favourite Artwork</h3>
+        <div id="favouriteArt" style="font-size:50px;text-align:center">🎨</div>
+        <button onclick="selectArtwork()">Choose Artwork</button>
+        <p id="favouriteResult" class="result"></p>
+    </div>
+
+    <div class="program">
+        <h3>6. Art Print Order</h3>
+        <select id="printSize">
+            <option value="100">Small - Rs.100</option>
+            <option value="200">Medium - Rs.200</option>
+            <option value="400">Large - Rs.400</option>
+        </select>
+        <input type="number" id="printQty" value="1" min="1">
+        <button onclick="calculatePrint()">Calculate Bill</button>
+        <p id="printResult" class="result"></p>
+    </div>
+
+</div>
+</section>
+
+<!-- EXPERIMENT 6 -->
+<section id="exp6">
+<h2>Experiment 6 - Timer Functions and Arrays</h2>
+
+<div class="programs">
+
+    <div class="program">
+        <h3>1. Gallery Digital Clock</h3>
+        <h2 id="clock">00:00:00</h2>
+        <p id="clockDate"></p>
+    </div>
+
+    <div class="program">
+        <h3>2. Gallery Background Changer</h3>
+        <button onclick="changeBackground()">Change Colour</button>
+        <button onclick="stopBackground()">Stop Timer</button>
+        <p id="bgResult" class="result"></p>
+    </div>
+
+    <div class="program">
+        <h3>3. Artwork Text Effects</h3>
+        <p id="fontText" onmouseover="incSize()" onmouseout="decSize()">
+            Move the mouse over this artwork description.
+        </p>
+    </div>
+
+    <div class="program">
+        <h3>4. Moving Artwork</h3>
+        <div id="artTrack">
+            <div id="movingArtwork">🖼️</div>
+        </div>
+        <button onclick="startArt()">Move</button>
+        <button onclick="stopArt()">Stop</button>
+        <button onclick="resetArt()">Reset</button>
+    </div>
+
+    <div class="program">
+        <h3>5. Artist Array of Objects</h3>
+        <button onclick="showArtists()">Display Artists</button>
+        <p id="artistResult" class="result"></p>
+    </div>
+
+    <div class="program">
+        <h3>6. Date Object</h3>
+        <button onclick="showDate()">Display Date</button>
+        <p id="dateResult" class="result"></p>
+    </div>
+
+    <div class="program">
+        <h3>7. Artwork Class and Object</h3>
+        <button onclick="showArtwork()">Display Artwork</button>
+        <p id="classResult" class="result"></p>
+    </div>
+
+</div>
+</section>
+
+<!-- EXPERIMENT 7 -->
+<section id="exp7">
+<h2>Experiment 7 - jQuery Applications</h2>
+
+<div class="programs">
+
+    <div class="program">
+        <h3>1. Art Exhibition Budget</h3>
+
+        <input type="number" id="budgetAmount" placeholder="Total Budget">
+        <input type="number" id="displayPercent" value="50" placeholder="Display %">
+        <input type="number" id="decorationPercent" value="20" placeholder="Decoration %">
+        <input type="number" id="marketingPercent" value="20" placeholder="Marketing %">
+        <input type="number" id="otherPercent" value="10" placeholder="Other %">
+
+        <button id="budgetBtn">Calculate Budget</button>
+
+        <div id="budgetOutput" class="budget-results">
+            <div class="budget-box">Display<br>Rs.0</div>
+            <div class="budget-box">Decoration<br>Rs.0</div>
+            <div class="budget-box">Marketing<br>Rs.0</div>
+            <div class="budget-box">Other<br>Rs.0</div>
+        </div>
+
+        <p id="budgetMessage" class="result"></p>
+    </div>
+
+    <div class="program">
+        <h3>2. Art Print Shop</h3>
+
+        <div class="gallery">
+            <div class="art-item">
+                <div class="art-image">🎨</div>
+                <b>Abstract Print</b>
+                <p>Rs.300</p>
+            </div>
+            <div class="art-item">
+                <div class="art-image">🖼️</div>
+                <b>Portrait Print</b>
+                <p>Rs.200</p>
+            </div>
+            <div class="art-item">
+                <div class="art-image">🌄</div>
+                <b>Landscape Print</b>
+                <p>Rs.250</p>
+            </div>
+            <div class="art-item">
+                <div class="art-image">🌿</div>
+                <b>Nature Print</b>
+                <p>Rs.500</p>
+            </div>
+        </div>
+
+        <input type="number" id="abstractQty" value="0" min="0" placeholder="Abstract Quantity">
+        <input type="number" id="portraitQty" value="0" min="0" placeholder="Portrait Quantity">
+        <input type="number" id="landscapeQty" value="0" min="0" placeholder="Landscape Quantity">
+        <input type="number" id="natureQty" value="0" min="0" placeholder="Nature Quantity">
+
+        <button id="printOrderBtn">Place Order</button>
+        <p id="shopBill" class="result">Total Price: Rs.0</p>
+    </div>
+
+    <div class="program">
+        <h3>3. Artwork Frame Customisation</h3>
+
+        <div id="framePreview"></div>
+
+        <button id="frameColorBtn">Change Frame Colour</button>
+        <button id="artColorBtn">Change Artwork Colour</button>
+        <button id="frameSizeBtn">Change Frame Size</button>
+        <button id="frameResetBtn">Reset</button>
+
+        <p id="frameMessage" class="result"></p>
+    </div>
+
+</div>
+</section>
+
+<!-- EXPERIMENT 8 -->
+<section id="exp8" ng-app="artApp">
+<h2>Experiment 8 - AngularJS Directives</h2>
+
+<div class="programs">
+
+    <!-- 1. ART GALLERY WELCOME -->
+    <div class="program" ng-controller="HelloWorldCtrl">
+        <h3>1. Art Gallery Welcome</h3>
+        <h2>{{message}}</h2>
+    </div>
+
+    <!-- 2. ARTWORK REVIEW -->
+    <div class="program" ng-controller="ReviewController">
+        <h3>2. Artwork Review Box</h3>
+
+        <textarea ng-model="review"
+                  placeholder="Write your artwork review"></textarea>
+
+        <button ng-click="addReview()">Post Review</button>
+
+        <h4>Customer Reviews</h4>
+
+        <ul>
+            <li ng-repeat="r in reviews track by $index">
+                {{r}}
+                <button ng-click="deleteReview($index)">Delete</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 3. ARTWORK PRICE CALCULATOR -->
+    <div class="program" ng-controller="PriceController">
+        <h3>3. Artwork Price Calculator</h3>
+
+        <input type="number" ng-model="price"
+               placeholder="Enter artwork price">
+
+        <input type="number" ng-model="quantity"
+               placeholder="Enter quantity">
+
+        <button ng-click="calculate()">Calculate Price</button>
+
+        <p class="result">Total Price: Rs.{{result}}</p>
+    </div>
+
+    <!-- 4. EXHIBITION TASK LIST -->
+    <div class="program" ng-controller="ArtTaskController">
+        <h3>4. Art Exhibition Task List</h3>
+
+        <input ng-model="task" placeholder="Enter exhibition task">
+
+        <button ng-click="addTask()">Add Task</button>
+
+        <ul>
+            <li ng-repeat="t in tasks track by $index">
+                {{t}}
+                <button ng-click="removeTask($index)">Delete</button>
+            </li>
+        </ul>
+    </div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+
+<div class="program">
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="tel" id="phone" placeholder="Phone Number">
+
+        <select id="art">
+            <option value="">Select Artwork</option>
+            <option>Abstract Art</option>
+            <option>Portrait Art</option>
+            <option>Landscape Art</option>
+            <option>Digital Art</option>
+        </select>
+
+        <textarea id="message" placeholder="Your Message"></textarea>
+
+        <button type="submit">Submit</button>
+        <p id="formResult" class="result"></p>
+    </form>
+</div>
+</section>
+
+<footer>
+    <p>ART GALLERY WEBSITE</p>
+    <p>DIVAKARAN M | URK24CS1200</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+<script>
+
+/* EXPERIMENT 5 - JAVASCRIPT */
+
+// 1. Artwork Title Analyzer
+function findWords() {
+    let sentence = document.getElementById("sentence").value;
+
+    if (!sentence.trim()) {
+        document.getElementById("wordResult").innerHTML =
+        "Enter artwork titles.";
+        return;
+    }
+
+    let words = sentence.trim().split(/\s+/);
+    let shortest = words[0];
+    let longest = words[0];
+
+    for (let word of words) {
+        if (word.length < shortest.length) shortest = word;
+        if (word.length > longest.length) longest = word;
+    }
+
+    document.getElementById("wordResult").innerHTML =
+    "Shortest: " + shortest + "<br>Longest: " + longest;
+}
+
+// 2. Frame Area Calculator
+function calculateFrame() {
+    let w = Number(document.getElementById("frameWidth").value);
+    let h = Number(document.getElementById("frameHeight").value);
+
+    if (w <= 0 || h <= 0) {
+        document.getElementById("frameResult").innerHTML =
+        "Enter valid dimensions.";
+        return;
+    }
+
+    document.getElementById("frameResult").innerHTML =
+    "Frame Area: " + (w * h).toFixed(2) + " square metres";
+}
+
+// 3. Artwork Grid Generator
+function growArt() {
+    let r = Number(document.getElementById("rows").value);
+    let c = Number(document.getElementById("cols").value);
+    let grid = document.getElementById("artGrid");
+
+    if (r < 1 || c < 1 || r * c > 100) {
+        grid.innerHTML = "Enter valid rows and columns.";
+        return;
+    }
+
+    grid.innerHTML = "";
+    grid.style.gridTemplateColumns = `repeat(${c}, 1fr)`;
+
+    let pictures = ["🎨", "🖼️", "🌄", "🌻"];
+
+    for (let i = 0; i < r * c; i++) {
+        let tile = document.createElement("div");
+        tile.className = "artTile";
+        tile.innerHTML = pictures[Math.floor(Math.random() * pictures.length)];
+        grid.appendChild(tile);
+    }
+}
+
+// 4. Artwork Price Converter
+function convertPrice() {
+    let amount = Number(document.getElementById("amount").value);
+    let from = document.getElementById("currencyFrom").value;
+    let to = document.getElementById("currencyTo").value;
+
+    if (amount < 0 || !Number.isFinite(amount)) {
+        document.getElementById("currencyResult").innerHTML =
+        "Enter a valid price.";
+        return;
+    }
+
+    let result = amount;
+
+    if (from !== to) {
+        result = from === "INR" ? amount * 0.015 : amount * 67.12;
+    }
+
+    document.getElementById("currencyResult").innerHTML =
+    "Converted Price: " + result.toFixed(2) + " " + to;
+}
+
+// 5. Favourite Artwork
+function selectArtwork() {
+    let pictures = ["🎨", "🖼️", "🌄", "🌻", "🎭"];
+    let names = ["Abstract Art", "Portrait Art", "Landscape Art",
+                 "Nature Art", "Classic Art"];
+
+    let index = Math.floor(Math.random() * pictures.length);
+
+    document.getElementById("favouriteArt").innerHTML = pictures[index];
+    document.getElementById("favouriteResult").innerHTML =
+    "Your favourite artwork: " + names[index];
+}
+
+// 6. Art Print Order
+function calculatePrint() {
+    let price = Number(document.getElementById("printSize").value);
+    let qty = Number(document.getElementById("printQty").value);
+
+    if (qty < 1 || !Number.isInteger(qty)) {
+        document.getElementById("printResult").innerHTML =
+        "Enter a valid quantity.";
+        return;
+    }
+
+    let total = price * qty;
+
+    document.getElementById("printResult").innerHTML =
+    "Print Cost: Rs." + total.toFixed(2);
+}
+
+// Gallery search
+document.getElementById("searchArt").addEventListener("keyup", function() {
+    let value = this.value.toLowerCase();
+
+    document.querySelectorAll("#galleryItems .card").forEach(function(card) {
+        card.style.display =
+        card.innerText.toLowerCase().includes(value) ? "" : "none";
+    });
+});
+
+// Contact form
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    document.getElementById("formResult").innerHTML =
+    "Thank you, " + document.getElementById("name").value +
+    "! Your message has been submitted.";
+});
+
+/* EXPERIMENT 6 - TIMER AND ARRAYS */
+
+// 1. Digital Clock
+function displayClock() {
+    let now = new Date();
+
+    let h = String(now.getHours()).padStart(2, "0");
+    let m = String(now.getMinutes()).padStart(2, "0");
+    let s = String(now.getSeconds()).padStart(2, "0");
+
+    document.getElementById("clock").innerHTML = h + ":" + m + ":" + s;
+    document.getElementById("clockDate").innerHTML = now.toDateString();
+}
+
+displayClock();
+setInterval(displayClock, 1000);
+
+// 2. Background Colour Changer
+function changeBackground() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+
+    document.body.style.backgroundColor = `rgb(${r},${g},${b})`;
+    document.getElementById("bgResult").innerHTML =
+    `RGB(${r}, ${g}, ${b})`;
+}
+
+let bgTimer = setInterval(changeBackground, 30000);
+
+function stopBackground() {
+    clearInterval(bgTimer);
+    document.getElementById("bgResult").innerHTML = "Timer stopped.";
+}
+
+// 3. Font Size Events
+function incSize() {
+    document.getElementById("fontText").style.fontSize = "25px";
+}
+
+function decSize() {
+    document.getElementById("fontText").style.fontSize = "16px";
+}
+
+// 4. Moving Artwork
+let artPosition = 0;
+let artTimer;
+
+function moveArtwork() {
+    if (artPosition < 400) {
+        artPosition += 2;
+        document.getElementById("movingArtwork").style.left =
+        artPosition + "px";
+
+        artTimer = setTimeout(moveArtwork, 20);
+    }
+}
+
+function startArt() {
+    clearTimeout(artTimer);
+    moveArtwork();
+}
+
+function stopArt() {
+    clearTimeout(artTimer);
+}
+
+function resetArt() {
+    clearTimeout(artTimer);
+    artPosition = 0;
+    document.getElementById("movingArtwork").style.left = "0px";
+}
+
+// 5. Artist Array
+let artists = [
+    {name: "Leonardo da Vinci", artwork: "Mona Lisa"},
+    {name: "Vincent van Gogh", artwork: "Starry Night"},
+    {name: "Pablo Picasso", artwork: "Modern Art"}
+];
+
+function showArtists() {
+    let output = "";
+
+    artists.forEach(function(artist) {
+        output += artist.name + " - " + artist.artwork + "<br>";
+    });
+
+    document.getElementById("artistResult").innerHTML = output;
+}
+
+// 6. Date Object
+function showDate() {
+    let d = new Date();
+
+    document.getElementById("dateResult").innerHTML =
+    "Date: " + d.getDate() +
+    "<br>Month: " + (d.getMonth() + 1) +
+    "<br>Year: " + d.getFullYear() +
+    "<br>Hours: " + d.getHours() +
+    "<br>Minutes: " + d.getMinutes() +
+    "<br>Seconds: " + d.getSeconds();
+}
+
+// 7. Class and Object
+class Artwork {
+    constructor(name, artist) {
+        this.name = name;
+        this.artist = artist;
+    }
+
+    display() {
+        return this.name + " by " + this.artist;
+    }
+}
+
+function showArtwork() {
+    let painting = new Artwork("Starry Night", "Vincent van Gogh");
+    document.getElementById("classResult").innerHTML =
+    painting.display();
+}
+
+/* EXPERIMENT 7 - JQUERY */
+
+$(document).ready(function() {
+
+    // 1. Exhibition Budget
+    $("#budgetBtn").click(function() {
+        let amount = Number($("#budgetAmount").val());
+
+        let percentages = [
+            Number($("#displayPercent").val()),
+            Number($("#decorationPercent").val()),
+            Number($("#marketingPercent").val()),
+            Number($("#otherPercent").val())
+        ];
+
+        let totalPercent = percentages.reduce((a, b) => a + b, 0);
+
+        if (amount <= 0 || percentages.some(p => p < 0 || p > 100)
+            || totalPercent !== 100) {
+            alert("Enter a valid budget and percentages totaling 100%.");
+            return;
+        }
+
+        let values = percentages.map(p => amount * p / 100);
+
+        $("#budgetOutput").html(
+            `<div class="budget-box">Display<br>Rs.${values[0].toFixed(2)}</div>
+             <div class="budget-box">Decoration<br>Rs.${values[1].toFixed(2)}</div>
+             <div class="budget-box">Marketing<br>Rs.${values[2].toFixed(2)}</div>
+             <div class="budget-box">Other<br>Rs.${values[3].toFixed(2)}</div>`
+        );
+
+        $("#budgetMessage").text("Budget calculated successfully!");
+    });
+
+    // 2. Art Print Shop
+    $("#printOrderBtn").click(function() {
+        let quantities = [
+            Number($("#abstractQty").val()),
+            Number($("#portraitQty").val()),
+            Number($("#landscapeQty").val()),
+            Number($("#natureQty").val())
+        ];
+
+        if (quantities.some(q => q < 0 || !Number.isInteger(q))) {
+            alert("Enter valid quantities.");
+            return;
+        }
+
+        let total = quantities[0] * 300 +
+                    quantities[1] * 200 +
+                    quantities[2] * 250 +
+                    quantities[3] * 500;
+
+        $("#shopBill").text("Total Price: Rs." + total);
+    });
+
+    // 3. Frame Customisation
+    $("#frameColorBtn").click(function() {
+        let colors = ["red", "blue", "green", "orange", "purple"];
+        let color = colors[Math.floor(Math.random() * colors.length)];
+
+        $("#framePreview").css("border-color", color);
+        $("#frameMessage").text("Frame colour changed!");
+    });
+
+    $("#artColorBtn").click(function() {
+        let colors = ["pink", "lightblue", "yellow", "lightgreen"];
+        let color = colors[Math.floor(Math.random() * colors.length)];
+
+        $("#framePreview").css("background", color);
+        $("#frameMessage").text("Artwork colour changed!");
+    });
+
+    $("#frameSizeBtn").click(function() {
+        $("#framePreview").css({
+            "width": "230px",
+            "height": "170px"
+        });
+
+        $("#frameMessage").text("Frame size increased!");
+    });
+
+    $("#frameResetBtn").click(function() {
+        $("#framePreview").css({
+            "width": "180px",
+            "height": "130px",
+            "border-color": "#d4af37",
+            "background": "linear-gradient(45deg, #777, #d4af37)"
+        });
+
+        $("#frameMessage").text("Frame design restored!");
+    });
+
+});
+
+/* EXPERIMENT 8 - ANGULARJS */
+
+// AngularJS Application
+var artApp = angular.module("artApp", []);
+
+// 1. Art Gallery Welcome
+artApp.controller("HelloWorldCtrl", function($scope) {
+    $scope.message = "Welcome to Art Gallery!";
+});
+
+// 2. Artwork Review Box
+artApp.controller("ReviewController", function($scope) {
+    $scope.reviews = [];
+
+    $scope.addReview = function() {
+        if ($scope.review && $scope.review.trim()) {
+            $scope.reviews.push($scope.review);
+            $scope.review = "";
+        }
+    };
+
+    $scope.deleteReview = function(index) {
+        $scope.reviews.splice(index, 1);
+    };
+});
+
+// 3. Artwork Price Calculator
+artApp.controller("PriceController", function($scope) {
+    $scope.calculate = function() {
+        $scope.result = Number($scope.price) *
+                        Number($scope.quantity);
+    };
+});
+
+// 4. Exhibition Task List
+artApp.controller("ArtTaskController", function($scope) {
+    $scope.tasks = [];
+
+    $scope.addTask = function() {
+        if ($scope.task && $scope.task.trim()) {
+            $scope.tasks.push($scope.task);
+            $scope.task = "";
+        }
+    };
+
+    $scope.removeTask = function(index) {
+        $scope.tasks.splice(index, 1);
+    };
+});
+
+</script>
+
+</body>
+</html>
