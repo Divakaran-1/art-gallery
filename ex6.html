@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Gallery - Divakaran</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f1ff;
+    color: #222;
+    line-height: 1.6;
+}
+
+header {
+    background: #292044;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background: #493875;
+    padding: 12px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+section {
+    padding: 30px 7%;
+}
+
+h2 {
+    text-align: center;
+    color: #493875;
+    margin-bottom: 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(120deg, #b9a5ed, #f6c7e8);
+}
+
+.hero h2 {
+    color: #292044;
+    font-size: 35px;
+}
+
+button {
+    background: #493875;
+    color: white;
+    padding: 9px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background: #7659b5;
+}
+
+input, select, textarea {
+    padding: 9px;
+    margin: 7px 0;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+.gallery, .programs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card, .program {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px #0002;
+    margin-bottom: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #493875;
+}
+
+.program h3 {
+    color: #493875;
+    margin-bottom: 10px;
+}
+
+.program input, .program select {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #aaa;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #493875;
+    color: white;
+}
+
+#garden {
+    display: grid;
+    gap: 5px;
+    margin-top: 12px;
+}
+
+.fruit {
+    background: #e8e1ff;
+    padding: 12px;
+    text-align: center;
+    font-size: 25px;
+}
+
+#coin {
+    font-size: 65px;
+    margin: 10px;
+}
+
+#carTrack {
+    background: #eee;
+    height: 75px;
+    position: relative;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+#car {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 48px;
+}
+
+footer {
+    background: #292044;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.result {
+    color: #493875;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+@media(max-width:600px) {
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ART GALLERY</h1>
+    <p>Explore the World of Creativity</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#artists">Artists</a>
+    <a href="#programs">Experiment 5</a>
+    <a href="#exp6">Experiment 6</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <h2>Welcome to Art Gallery</h2>
+    <p>Discover beautiful paintings and creative artworks.</p>
+    <button onclick="alert('Welcome to Art Gallery!')">
+        Explore Now
+    </button>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+        Art Gallery is a platform to explore different types of artwork.
+        It displays modern art, classic paintings, nature, portraits
+        and digital artwork.
+    </p>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <h2>Our Art Gallery</h2>
+
+    <input type="text" id="searchArt"
+    placeholder="Search artwork..." style="width:100%;">
+
+    <div class="gallery" id="galleryItems">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500" alt="Abstract art">
+            <h3>Abstract Art</h3>
+            <p>Creative and colourful artwork.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500" alt="Portrait art">
+            <h3>Portrait Art</h3>
+            <p>Beautiful human portraits.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=500" alt="Landscape art">
+            <h3>Landscape Art</h3>
+            <p>Wonderful natural landscapes.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500" alt="Nature art">
+            <h3>Nature Art</h3>
+            <p>Beautiful nature scenes.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?w=500" alt="Classic painting">
+            <h3>Classic Painting</h3>
+            <p>Traditional painting styles.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=500" alt="Digital art">
+            <h3>Digital Art</h3>
+            <p>Modern digital creativity.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ARTISTS -->
+<section id="artists">
+    <h2>Famous Artists</h2>
+
+    <table>
+        <tr>
+            <th>Artist Name</th>
+            <th>Artwork</th>
+        </tr>
+        <tr>
+            <td>Leonardo da Vinci</td>
+            <td>Mona Lisa</td>
+        </tr>
+        <tr>
+            <td>Vincent van Gogh</td>
+            <td>Starry Night</td>
+        </tr>
+        <tr>
+            <td>Pablo Picasso</td>
+            <td>Modern Art</td>
+        </tr>
+    </table>
+</section>
+
+<!-- EXPERIMENT 5 -->
+<section id="programs">
+    <h2>Experiment 5 - DOM Elements and Events</h2>
+
+    <div class="programs">
+
+        <!-- 1 Shortest and Longest Word -->
+        <div class="program">
+            <h3>1. Shortest and Longest Word</h3>
+
+            <input type="text" id="sentence"
+            placeholder="Enter a sentence">
+
+            <button onclick="findWords()">Find Words</button>
+
+            <p id="wordResult" class="result"></p>
+        </div>
+
+        <!-- 2 BMI Calculator -->
+        <div class="program">
+            <h3>2. BMI Calculator</h3>
+
+            <input type="number" id="weight"
+            placeholder="Weight in kg">
+
+            <input type="number" id="height"
+            placeholder="Height in metres">
+
+            <button onclick="calculateBMI()">Calculate BMI</button>
+
+            <p id="bmiResult" class="result"></p>
+        </div>
+
+        <!-- 3 Fruit Farm -->
+        <div class="program">
+            <h3>3. Fruit Farm</h3>
+
+            <input type="number" id="rows"
+            placeholder="Number of rows" min="1">
+
+            <input type="number" id="cols"
+            placeholder="Number of columns" min="1">
+
+            <button onclick="grow()">Grow Fruits</button>
+
+            <div id="garden"></div>
+        </div>
+
+        <!-- 4 Currency Converter -->
+        <div class="program">
+            <h3>4. Currency Converter</h3>
+
+            <input type="number" id="amount"
+            placeholder="Enter amount">
+
+            <select id="currencyFrom">
+                <option value="INR">INR</option>
+                <option value="USD">USD</option>
+            </select>
+
+            <select id="currencyTo">
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+            </select>
+
+            <button onclick="convert()">Convert</button>
+
+            <p id="currencyResult" class="result"></p>
+        </div>
+
+        <!-- 5 Coin Flip -->
+        <div class="program">
+            <h3>5. Coin Flip</h3>
+
+            <div id="coin">🪙</div>
+
+            <button onclick="flipCoin()">Flip Coin</button>
+
+            <p id="coinResult" class="result"></p>
+            <p>Heads: <span id="heads">0</span></p>
+            <p>Tails: <span id="tails">0</span></p>
+        </div>
+
+        <!-- 6 Cake Order -->
+        <div class="program">
+            <h3>6. Birthday Cake Order</h3>
+
+            <label>Cake Size</label>
+
+            <select id="cakeSize">
+                <option value="100">1/2 Kg - Rs.100</option>
+                <option value="200">1 Kg - Rs.200</option>
+                <option value="400">2 Kg - Rs.400</option>
+            </select>
+
+            <label>Quantity</label>
+            <input type="number" id="cakeQty" value="1" min="1">
+
+            <label>Tip</label>
+            <select id="tip">
+                <option value="10">10%</option>
+                <option value="15">15%</option>
+                <option value="20">20%</option>
+            </select>
+
+            <button onclick="calculateOrder()">Calculate Bill</button>
+
+            <p id="cakeResult" class="result"></p>
+        </div>
+
+    </div>
+</section>
+
+<!-- EXPERIMENT 6 -->
+<section id="exp6">
+    <h2>Experiment 6 - JavaScript Timer Functions and Arrays</h2>
+
+    <div class="programs">
+
+        <!-- 1 Digital Clock -->
+        <div class="program">
+            <h3>1. Digital Clock</h3>
+
+            <h2 id="clock">00:00:00</h2>
+            <p id="clockDate"></p>
+        </div>
+
+        <!-- 2 Dynamic Background -->
+        <div class="program" id="backgroundBox">
+            <h3>2. Dynamic Background Colour</h3>
+
+            <p>Background changes every 30 seconds.</p>
+
+            <button onclick="changeBackground()">
+                Change Colour
+            </button>
+
+            <button onclick="stopBackground()">
+                Stop Timer
+            </button>
+
+            <p id="bgResult" class="result"></p>
+        </div>
+
+        <!-- 3 Font Size -->
+        <div class="program">
+            <h3>3. Mouse Events - Font Size</h3>
+
+            <p id="fontText"
+            onmouseover="incSize()"
+            onmouseout="decSize()">
+                Move your mouse over this text.
+            </p>
+        </div>
+
+        <!-- 4 Moving Car -->
+        <div class="program">
+            <h3>4. Moving Car using Timer</h3>
+
+            <div id="carTrack">
+                <div id="car">🚗</div>
+            </div>
+
+            <button onclick="startCar()">Move</button>
+            <button onclick="stopCar()">Stop</button>
+            <button onclick="resetCar()">Reset</button>
+        </div>
+
+        <!-- 5 Student Array -->
+        <div class="program">
+            <h3>5. Student Array of Objects</h3>
+
+            <button onclick="showStudents()">Display Students</button>
+
+            <p id="studentResult" class="result"></p>
+        </div>
+
+        <!-- 6 Date Object -->
+        <div class="program">
+            <h3>6. Date Object Methods</h3>
+
+            <button onclick="showDate()">Display Date Details</button>
+
+            <p id="dateResult" class="result"></p>
+        </div>
+
+        <!-- 7 Class and Object -->
+        <div class="program">
+            <h3>7. JavaScript Class and Object</h3>
+
+            <button onclick="showCar()">Display Car Object</button>
+
+            <p id="classResult" class="result"></p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact Us</h2>
+
+    <div class="program">
+        <form id="contactForm">
+
+            <input type="text" id="name"
+            placeholder="Your Name" required>
+
+            <input type="email" id="email"
+            placeholder="Your Email" required>
+
+            <input type="tel" id="phone"
+            placeholder="Phone Number">
+
+            <input type="date" id="date">
+
+            <input type="number" id="members"
+            placeholder="Number of Members">
+
+            <select id="art">
+                <option value="">Select Artwork</option>
+                <option>Abstract Art</option>
+                <option>Portrait Art</option>
+                <option>Landscape Art</option>
+                <option>Digital Art</option>
+            </select>
+
+            <textarea id="message"
+            placeholder="Your Message"></textarea>
+
+            <button type="submit">Submit</button>
+
+            <p id="formResult" class="result"></p>
+
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>Art Gallery Website</p>
+    <p>DIVAKARAN M | URK24CS1200</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+<script>
+
+/* ================= EXPERIMENT 5 ================= */
+
+/* 1. Shortest and Longest Word */
+
+function findWords() {
+    let sentence = document.getElementById("sentence").value;
+    let words = sentence.trim().split(/\s+/);
+
+    if (!sentence.trim()) {
+        document.getElementById("wordResult").innerHTML =
+        "Please enter a sentence.";
+        return;
+    }
+
+    let shortest = words[0];
+    let longest = words[0];
+
+    for (let word of words) {
+        if (word.length < shortest.length)
+            shortest = word;
+
+        if (word.length > longest.length)
+            longest = word;
+    }
+
+    document.getElementById("wordResult").innerHTML =
+    "Shortest: " + shortest + "<br>Longest: " + longest;
+}
+
+
+/* 2. BMI Calculator */
+
+function calculateBMI() {
+    let w = Number(document.getElementById("weight").value);
+    let h = Number(document.getElementById("height").value);
+
+    if (w <= 0 || h <= 0) {
+        document.getElementById("bmiResult").innerHTML =
+        "Enter valid weight and height.";
+        return;
+    }
+
+    let bmi = w / (h * h);
+    let category;
+
+    if (bmi < 18)
+        category = "Underweight";
+    else if (bmi < 25)
+        category = "Normal";
+    else if (bmi < 30)
+        category = "Overweight";
+    else
+        category = "Obese";
+
+    document.getElementById("bmiResult").innerHTML =
+    "BMI: " + bmi.toFixed(2) + "<br>" + category;
+}
+
+
+/* 3. Fruit Farm */
+
+function grow() {
+    let r = Number(document.getElementById("rows").value);
+    let c = Number(document.getElementById("cols").value);
+    let garden = document.getElementById("garden");
+
+    if (r < 1 || c < 1 || r * c > 100) {
+        garden.innerHTML = "Enter valid rows and columns (maximum 100 cells).";
+        return;
+    }
+
+    garden.innerHTML = "";
+    garden.style.gridTemplateColumns = `repeat(${c}, 1fr)`;
+
+    for (let i = 0; i < r * c; i++) {
+        let fruit = document.createElement("div");
+        fruit.className = "fruit";
+
+        fruit.innerHTML = Math.random() < 0.5 ? "🍎" : "🍊";
+        garden.appendChild(fruit);
+    }
+}
+
+
+/* 4. Currency Converter */
+
+function convert() {
+    let amount = Number(document.getElementById("amount").value);
+    let from = document.getElementById("currencyFrom").value;
+    let to = document.getElementById("currencyTo").value;
+    let result;
+
+    if (amount < 0 || !Number.isFinite(amount)) {
+        document.getElementById("currencyResult").innerHTML =
+        "Enter a valid amount.";
+        return;
+    }
+
+    if (from === to)
+        result = amount;
+    else if (from === "INR")
+        result = amount * 0.015;
+    else
+        result = amount * 67.12;
+
+    document.getElementById("currencyResult").innerHTML =
+    "Converted Amount: " + result.toFixed(2) + " " + to;
+}
+
+
+/* 5. Coin Flip */
+
+let heads = 0;
+let tails = 0;
+
+function flipCoin() {
+    let result = Math.random() < 0.5 ? "Heads" : "Tails";
+
+    document.getElementById("coin").innerHTML =
+    result === "Heads" ? "🟡" : "⚪";
+
+    if (result === "Heads")
+        heads++;
+    else
+        tails++;
+
+    document.getElementById("coinResult").innerHTML = result;
+
+    document.getElementById("heads").innerHTML = heads;
+    document.getElementById("tails").innerHTML = tails;
+}
+
+
+/* 6. Birthday Cake Order */
+
+function calculateOrder() {
+    let price = Number(document.getElementById("cakeSize").value);
+    let qty = Number(document.getElementById("cakeQty").value);
+    let tipPercent = Number(document.getElementById("tip").value);
+
+    if (qty < 1 || !Number.isInteger(qty)) {
+        document.getElementById("cakeResult").innerHTML =
+        "Enter a valid quantity.";
+        return;
+    }
+
+    let cost = price * qty;
+    let tax = cost * 0.09;
+    let tip = (cost + tax) * tipPercent / 100;
+    let total = cost + tax + tip;
+
+    document.getElementById("cakeResult").innerHTML =
+    "Cake Cost: Rs." + cost.toFixed(2) +
+    "<br>Tax (9%): Rs." + tax.toFixed(2) +
+    "<br>Tip: Rs." + tip.toFixed(2) +
+    "<br>Total: Rs." + total.toFixed(2);
+}
+
+
+/* DOM EVENTS */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Keyup event - Gallery search
+    document.getElementById("searchArt").addEventListener("keyup", function() {
+        let value = this.value.toLowerCase();
+        let cards = document.querySelectorAll("#galleryItems .card");
+
+        cards.forEach(function(card) {
+            card.style.display =
+            card.innerText.toLowerCase().includes(value) ? "" : "none";
+        });
+    });
+
+    // Click event - Gallery cards
+    document.querySelectorAll(".card").forEach(function(card) {
+        card.addEventListener("click", function() {
+            alert("Selected: " + this.querySelector("h3").innerText);
+        });
+
+        // Mouseover and mouseout events
+        card.addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.03)";
+        });
+
+        card.addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+    });
+
+    // Focus and blur events
+    document.getElementById("name").addEventListener("focus", function() {
+        this.style.background = "#eee7ff";
+    });
+
+    document.getElementById("name").addEventListener("blur", function() {
+        this.style.background = "white";
+    });
+
+    // Change event
+    document.getElementById("art").addEventListener("change", function() {
+        console.log("Selected artwork: " + this.value);
+    });
+
+    // Submit event
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        document.getElementById("formResult").innerHTML =
+        "Thank you, " + document.getElementById("name").value +
+        "! Your form has been submitted.";
+    });
+
+});
+
+
+/* ================= EXPERIMENT 6 ================= */
+
+/* 1. Digital Clock - Date and setInterval */
+
+function displayClock() {
+    let now = new Date();
+
+    let h = String(now.getHours()).padStart(2, "0");
+    let m = String(now.getMinutes()).padStart(2, "0");
+    let s = String(now.getSeconds()).padStart(2, "0");
+
+    document.getElementById("clock").innerHTML =
+    h + ":" + m + ":" + s;
+
+    document.getElementById("clockDate").innerHTML =
+    now.toDateString();
+}
+
+displayClock();
+setInterval(displayClock, 1000);
+
+
+/* 2. Dynamic Background - setInterval and clearInterval */
+
+function changeBackground() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+
+    document.body.style.backgroundColor =
+    `rgb(${r}, ${g}, ${b})`;
+
+    document.getElementById("bgResult").innerHTML =
+    `RGB(${r}, ${g}, ${b})`;
+}
+
+let bgTimer = setInterval(changeBackground, 30000);
+
+function stopBackground() {
+    clearInterval(bgTimer);
+
+    document.getElementById("bgResult").innerHTML =
+    "Background timer stopped.";
+}
+
+
+/* 3. Mouse Events - Increase and Decrease Font Size */
+
+let fontSize = 16;
+
+function incSize() {
+    fontSize += 2;
+    document.getElementById("fontText").style.fontSize =
+    fontSize + "px";
+}
+
+function decSize() {
+    fontSize = 16;
+    document.getElementById("fontText").style.fontSize =
+    fontSize + "px";
+}
+
+
+/* 4. Moving Car - setTimeout and clearTimeout */
+
+let carPosition = 0;
+let carTimer;
+
+function moveCar() {
+    if (carPosition < 400) {
+        carPosition += 2;
+
+        document.getElementById("car").style.left =
+        carPosition + "px";
+
+        carTimer = setTimeout(moveCar, 20);
+    }
+}
+
+function startCar() {
+    clearTimeout(carTimer);
+    moveCar();
+}
+
+function stopCar() {
+    clearTimeout(carTimer);
+}
+
+function resetCar() {
+    clearTimeout(carTimer);
+    carPosition = 0;
+
+    document.getElementById("car").style.left = "0px";
+}
+
+
+/* 5. Array of Student Objects */
+
+let students = [
+    {name: "Divakaran", regno: "URK24CS1200", year: 2007},
+    {name: "John", regno: "URK24CS1201", year: 1999},
+    {name: "David", regno: "URK24CS1202", year: 2002}
+];
+
+function showStudents() {
+    let output = "";
+
+    students.forEach(function(student) {
+
+        output += student.name + " - " + student.regno;
+
+        if (student.year < 2000)
+            output += " - Born before 2000<br>";
+        else
+            output += " - Born after 2000<br>";
+    });
+
+    document.getElementById("studentResult").innerHTML = output;
+}
+
+
+/* 6. Date Object Methods */
+
+function showDate() {
+    let d = new Date();
+
+    document.getElementById("dateResult").innerHTML =
+    "Date: " + d.getDate() +
+    "<br>Day: " + d.getDay() +
+    "<br>Month: " + (d.getMonth() + 1) +
+    "<br>Year: " + d.getFullYear() +
+    "<br>Hours: " + d.getHours() +
+    "<br>Minutes: " + d.getMinutes() +
+    "<br>Seconds: " + d.getSeconds() +
+    "<br>Milliseconds: " + d.getMilliseconds() +
+    "<br>Time: " + d.getTime() +
+    "<br>String: " + d.toString();
+}
+
+
+/* 7. Class and Object */
+
+class Car {
+    constructor(name) {
+        this.name = name;
+    }
+
+    present() {
+        return "My car is " + this.name;
+    }
+}
+
+function showCar() {
+    let myCar = new Car("BMW");
+
+    document.getElementById("classResult").innerHTML =
+    myCar.present();
+}
+
+</script>
+
+</body>
+</html>
